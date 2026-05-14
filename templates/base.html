@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+
+        <h1 id="header-title">Carteira Digital</h1>
+
+
+        <div class="menu">
+            <button id="menu-button" class="menu-button">☰</button>
+
+        {% if session.get("logged") %}
+
+            <div class="menu-sidebar ocult" id="menu-sidebar">
+                <button class="menu-option" onclick="exitUser()">Sair</button>
+
+            </div> 
+
+        {% else %}
+
+            <div class="menu-sidebar ocult" id="menu-sidebar">
+                <button class="menu-option" onclick="goToLogin()">→Login</button>
+                <button class="menu-option" onclick="goToRegister()">→Cadastrar-se</button>
+
+            </div>
+                
+        {% endif %}
+        </div>
+    {% if session.get("logged") %}
+    <p>👤</p>
+    {% else %}
+    <p>🚫</p>
+    {% endif %}
+    
+    </header>
+    
+    <script src="{{ url_for('static', filename='base.js') }}"></script>
+
+    {% block content %}{% endblock %}
+
+</body>
+</html>

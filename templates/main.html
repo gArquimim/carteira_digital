@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block title %}Carteira_digital{% endblock %}
+
+{% block content %}
+
+<div class="main-container">
+
+    <div class="main-dashboard" id="dashboard-balance">
+        <div id="balance-info">
+            <span id="balance-label" class="dashboard-span">Saldo disponível</span>
+            <p id="balance-value">{{balance}}</p>
+        </div>
+        <img id="balance-img" src="{{ url_for('static', filename='images/icon-carteira.png') }}">
+    </div>
+    
+    <div class="main-dashboard" id="dashboard-transaction">
+
+        <div id="transaction-header">
+            <span class="dashboard-span">Nova transação</span>
+            <small id="transaction-message" class="small-message"></small>
+        </div>
+
+        <form id="transaction-form">
+
+            <div class="transaction-group">
+
+                <div class="transaction-field">
+
+                    <label class="field-label" for="transaction-type">Tipo</label>
+                    <select id="transaction-type" class="transaction-option">
+                        <option value="" selected disabled>Selecione</option>
+                        <option value="income">Recebimento</option>
+                        <option value="expense">Pagamento</option>
+                    </select>
+
+                </div>
+
+                <div class="transaction-field">
+
+                    <label class="field-label" for="transaction-amount">Valor (R$)</label>
+                    <input id="transaction-amount" type="number" step="0.01" required placeholder="0,00">
+
+                </div>
+
+                <button id="transaction-submit" type="submit">Realizar →</button>
+
+                </div>
+
+        </form>
+
+    </div>
+
+    <div class="main-dashboard" id="dashboard-statement">
+
+    </div>
+
+    <div class="main-dashboard" id="dashboard-graphic">
+
+    </div>
+
+</div>
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+{% endblock %}
+
+
+
+
+ 
+
+
+

@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}Carteira-digital/Login{% endblock %}
+
+{% block content %}
+
+<div class="container-auth">
+    <div class="auth">
+
+        <div class="auth-title">
+            <h1>Login</h1>
+        </div>
+
+        <form id="auth-form" class="auth-form">
+
+            <div class="auth-group">
+                <label for="email-input">Seu email</label>
+                <input id="email-input" type="email" name="email" required placeholder="Carteira.digital@gmail.com">
+                <small id="email-error" class="small-message"></small>
+            </div>
+
+            <div class="auth-group">
+                <label for="password-input">Sua password</label>
+                <input id="password-input" type="password" name="password" required>
+                <small id="password-error" class="small-message"></small>
+            </div>
+
+            <button type="submit">Enviar</button>
+
+        </form>
+        
+        <div class="auth-footer">
+            <p>Ainda não tem conta?</p>
+            <button onclick="goToRegister()">Cadastrar-se</button>
+        </div>
+        
+    </div>
+</div>
+
+<div class="toast" id="toast">
+    <p></p>
+</div>
+
+    <script src="{{ url_for('static', filename= 'login.js') }}"></script>
+
+{% endblock %}
