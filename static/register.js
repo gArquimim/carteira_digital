@@ -7,6 +7,7 @@ function showToast(messages) {
     toast.textContent = messages
     toast.classList.add("show")
     setTimeout(function() {
+        window.location.href = "/login"
         toast.classList.remove("show")
     }, 3000)
 }

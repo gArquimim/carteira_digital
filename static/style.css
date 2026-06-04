@@ -74,6 +74,12 @@ label {
     
     filter: invert(1);
 }
+.income {
+    color: #51b159;
+}
+.expense {
+    color: #c25843;
+}
 
 /* menu */
 .menu {
@@ -233,8 +239,8 @@ label {
     font-size: 1.2rem;
     font-weight: 600;
 
-    margin: 1rem;
-    margin-bottom: 0;
+    margin: 0.7rem;
+
 }
 #dashboard-balance {
     position: absolute;
@@ -375,25 +381,65 @@ label {
     font-size: 1.1em;
 }
 #dashboard-statement {
+    display: flex;
+    flex-direction: column;
+
+    box-sizing: border-box;
     position: absolute;
     bottom: 0;
     left: 0;
 
-    width: 45rem;
+    width: 87rem;
     height: 28rem;
 
     margin: 2.5rem;
+    padding: 1.5rem 2rem;
+    padding-bottom: 0;
 }
-#dashboard-graphic {
-    position: absolute;
-    bottom: 0;
-    right: 0;
+#statement-header {
+    display: grid;
 
-    width: 40rem;
-    height:28rem;
+    grid-template-columns:
+        20rem
+        1fr
+        12rem
+        15.5rem; 
 
-    margin: 2.5rem;
+    font-size: 0.9rem; 
+    color: #fff;
+    background-color: #022947;
+
+    padding: 0.3rem;
+    padding-left: 0.7rem;
+    margin: 0.15rem;
 }
+.statement-card {
+    display: grid;
 
+    grid-template-columns:
+        7rem
+        1fr
+        12rem
+        12rem 
+        50px; 
+
+    align-items: center;
+    gap: 16px;
+
+    padding: 0px;
+
+    gap: 0.8rem;
+}
+.statement-card-img {
+    width: 6rem;
+    height: 4rem;
+
+}
+.statement-card-text {
+    margin: 0rem;
+
+    font-size: 1rem;;
+    font-weight: bold;
+}
 
 

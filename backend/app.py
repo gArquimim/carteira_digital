@@ -21,7 +21,6 @@ def main():
     return render_template('main.html', balance=balance)
 
 
-
 @app.route("/transaction", methods=["POST"])
 def transaction():
     data = request.get_json()
@@ -58,6 +57,19 @@ def transaction():
             transaction_result["balance"] = balance
 
             return jsonify(transaction_result)
+
+
+@app.route("/recent-statement", methods=["GET"])
+def recent_statement():
+    user_id = session.get("user_id")
+
+    statement = get_recent_statement(user_id)
+
+    if not statement:
+        return jsonify([])
+    
+    else:
+        return jsonify(statement)
 
 
 
