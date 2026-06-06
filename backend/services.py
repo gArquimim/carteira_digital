@@ -218,7 +218,7 @@ def add_income(user_id,value):
     }
 
 def get_recent_statement(user_id):
-    cursor.execute("""SELECT type,value,date FROM transactions
+    cursor.execute("""SELECT id, type, value, date, description FROM transactions
                WHERE user_id = %s
                ORDER BY date DESC
                 LIMIT 5""",(user_id,))
@@ -228,19 +228,25 @@ def get_recent_statement(user_id):
         return []
     
     statement = []
-    for transaction_type_db, value_db, date_db in historic:
+    for transaction_id_db, transaction_type_db, value_db, date_db, description_db in historic:
         transaction_type = "Recebimento" if transaction_type_db == "income" else "Pagamento"
-        date = date_db.strftime("%d/%m/%Y %H:%M")
         value = f"+ R${value_db:.2f}" if transaction_type_db == "income" else f"- R${value_db:.2f}"
+        date = date_db.strftime("%d/%m/%Y %H:%M")
 
         statement.append({
-            "transaction_type":transaction_type,
-            "value":value,
-            "date":date,
+                "description": description_db or "",
+                "transaction_id": str(transaction_id_db),
+                "transaction_type":transaction_type,
+                "value":value,
+                "date":date,
         })
     return statement
 
-
+def add_description(description, transaction_id):
+    cursor.execute("""UPDATE transactions
+                   SET description = %s
+                   WHERE id = %s""",(description, transaction_id))
+    conn.commit()
 
 
 

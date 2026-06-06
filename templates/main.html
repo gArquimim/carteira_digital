@@ -3,7 +3,9 @@
 {% block title %}Carteira_digital{% endblock %}
 
 {% block content %}
-
+<div id="user-salution">
+    <p><span id="user-hi">Ola,</span> <span id="user-name">Gustavo</span></p>
+</div>
 <div class="main-container">
 
     <div class="main-dashboard" id="dashboard-balance">
@@ -11,7 +13,7 @@
             <span id="balance-label" class="dashboard-span">Saldo disponível</span>
             <p id="balance-value">{{balance}}</p>
         </div>
-        <img id="balance-img" src="{{ url_for('static', filename='images/icon-carteira.png') }}">
+        <img id="balance-img" src="{{ url_for('static', filename='images/wallet-icon.png') }}">
     </div>
     
     <div class="main-dashboard" id="dashboard-transaction">

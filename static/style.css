@@ -210,6 +210,28 @@ label {
 }
 
 /* main */
+#user-salution {
+    display: flex;
+    justify-content: bottom;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 13.5rem;
+
+
+    text-align: center;
+}
+#user-hi {
+    margin: 0;
+
+    color: #000
+}
+#user-name {
+    margin: 0;
+
+    color: #022947;
+    font-size: 3rem;
+}
 .main-container {
     position: relative;
     display: flex;
@@ -398,12 +420,13 @@ label {
 }
 #statement-header {
     display: grid;
+    gap: 0.2rem;
 
     grid-template-columns:
-        20rem
+        19rem
         1fr
-        12rem
-        15.5rem; 
+        11.5rem
+        16.5rem; 
 
     font-size: 0.9rem; 
     color: #fff;
@@ -418,10 +441,11 @@ label {
 
     grid-template-columns:
         7rem
-        1fr
+        11rem
+        10fr
+        11rem 
         12rem
-        12rem 
-        50px; 
+        5rem; 
 
     align-items: center;
     gap: 16px;
@@ -430,16 +454,34 @@ label {
 
     gap: 0.8rem;
 }
-.statement-card-img {
+.statement-card-arrow {
     width: 6rem;
     height: 4rem;
+}
+.statement-card-edition {
+    width: 4rem;
+    height: 4rem;
 
+    margin: 0;
+    padding: 0;
+
+    border: none;
+    background: none;
+    background-size: contain;
+    background-image: url("/static/images/pencil-icon.png");
 }
 .statement-card-text {
+    display: flex;
+    align-items: center;
+
+    min-height: 4rem;
     margin: 0rem;
+    border-right: 2px solid #063D64;
 
     font-size: 1rem;;
     font-weight: bold;
+
+    
 }
 
 

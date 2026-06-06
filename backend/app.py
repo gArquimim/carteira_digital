@@ -72,6 +72,18 @@ def recent_statement():
         return jsonify(statement)
 
 
+@app.route("/statement-description", methods=["POST"])
+def new_description ():
+    data = request.get_json()
+
+    description = data.get("description")
+    transaction_id = data.get("transactionId")
+
+    add_description(description, transaction_id)
+
+    return ""
+    
+
 
 #extras ----------------------------------------------
 @app.route("/exit-user", methods=["POST"])

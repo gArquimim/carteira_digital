@@ -12,7 +12,6 @@ conn = mysql.connector.connect(
 )
 cursor = conn.cursor(buffered=True)
 
-
 cursor.execute("""CREATE TABLE IF NOT EXISTS users(
                id INT AUTO_INCREMENT PRIMARY KEY ,
                name VARCHAR(100) NOT NULL,
@@ -26,6 +25,7 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS transactions(
                type ENUM('income','expense') NOT NULL,
                value DECIMAL(10,2) NOT NULL,
                date DATETIME DEFAULT CURRENT_TIMESTAMP,
+               description VARCHAR(100),
                INDEX (user_id),
                FOREIGN KEY(user_id) REFERENCES users(id) ON DELETE CASCADE
                )""")
